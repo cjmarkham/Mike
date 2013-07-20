@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <head>
-	<script src="main.js"></script>
+	<script src="modules/domready.js"></script>
+	<script src="modules/node.prototype.js"></script>
+	<script src="modules/element.js"></script>
+	<script src="modules/search.js"></script>
 
 	<script>
-		Mike.domReady(function() {
+		domReady(function() {
 
 			var el = new Element('div')
 			  		.html('Hello')
