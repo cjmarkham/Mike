@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <head>
-	<script src="modules/domready.js"></script>
-	<script src="modules/node.prototype.js"></script>
-	<script src="modules/element.js"></script>
-	<script src="modules/search.js"></script>
+	<script src="modules/dom/domready.js"></script>
+	<script src="modules/dom/node.prototype.js"></script>
+	<script src="modules/dom/element.js"></script>
+	<script src="modules/dom/search.js"></script>
+	<script src="modules/math/radian.js"></script>
+	<script src="modules/math/randRange.js"></script>
+	<script src="modules/math/round.js"></script>
 
 	<script>
 		domReady(function() {
@@ -32,7 +35,9 @@
 
 			 var element = new Search('[a-z]');
 
-			 console.log(element);
+			 console.log(Radian(180));
+			 console.log(RandRange(1, 50));
+			 console.log(Round(1.6524, 2));
 		});
 	</script>
 </head>
