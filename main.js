@@ -1,7 +1,5 @@
 var Mike = {
 
-    el : {},
-
     domReady : function(callback) {
         
         if (document.addEventListener) {
@@ -19,9 +17,8 @@ var Mike = {
 
     element : function(type) {
         var el = document.createElement(type);
-        this.el = el;
 
-        return this.el;
+        return el;
     },
 
 };
