@@ -4,7 +4,7 @@
 
 # Function List
 
-. domReady
+* domReady
 
 A cross browser solution for DOM ready event
 
@@ -16,13 +16,13 @@ Accepts a function as it's only parameter
 		alert('Dom is ready');
 	});	
 	
-. new Element
+* new Element
 
 Create an element
 
 	var element = new Element('div');
 
-. appendTo
+* appendTo
 
 Append an element to the DOM
 
@@ -33,7 +33,7 @@ If passing a class name a second parameter can be used to define the element ind
 
 	var element = new Element('div').appendTo('.bar', 1);
 
-. prependTo
+* prependTo
 
 Prepend an element to the DOM
 
@@ -44,26 +44,26 @@ If passing a class name a second parameter can be used to define the element ind
 
 	var element = new Element('div').prependTo('.bar', 1);
 
-. html
+* html
 
 Change the html of an element
 
 	var element = document.getElementById('foo');
 	element.html('Bar');
 
-. search
+* search
 
 Search the DOM for an element
 
-	. By Id
+* By Id
 
 		var element = new Search('#foo');
 
-	. By Class
+* By Class
 
 		var element = new Search('.bar');
 
-	. By regex
+* By regex
 
 		var element = new Search('[a-z]');
 
