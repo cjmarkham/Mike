@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+	<script src="main.js"></script>
+
+	<script>
+		Mike.domReady(function() {
+
+			var el = new Element('div')
+			  		.html('Hello')
+			  		.styles({
+			  			width 		: 100,
+			  			height 		: 100,
+			  			background 	: '#000',
+			  			color 		: '#fff'
+			  		})
+			  		.prependTo('#hello');
+
+			  var el = new Element('div')
+			  		.html('World')
+			  		.styles({
+			  			width 		: 100,
+			  			height 		: 100,
+			  			background 	: '#f00',
+			  			color 		: '#fff'
+			  		})
+			  		.prependTo('#hello');
+
+
+		});
+	</script>
+</head>
+
+<body>
+	<div id="hello"></div>
+</body>
