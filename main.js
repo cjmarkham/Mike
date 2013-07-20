@@ -10,8 +10,6 @@ var Mike = {
             document.onreadystatechange(function() {
                 callback();
             });
-        } else {
-            console.error('Error');
         }
     },
 
@@ -21,6 +19,39 @@ var Mike = {
         return el;
     },
 
+    search : function(element, index) {
+        if (element.indexOf('#') !== -1) {
+            return document.getElementById(element.replace('#', ''));
+        } else if (element.indexOf('.') !== -1) {
+            var elements = document.getElementsByClassName(element.replace('.', ''));
+
+            if (index) {
+                return elements[index];
+            }
+
+            return elements;
+        } else {
+            // Assume regex
+            var elements = document.body.querySelectorAll('*');
+            var regex = new RegExp(element);
+            var list = [];
+
+            for (var i = 0; i < elements.length; ++i) {
+                
+                var element = elements[i];
+
+                if (regex.test(element.getAttribute('id'))) {
+                    list.push(element);
+                } else if (regex.test(element.getAttribute('class'))) {
+                    list.push(element);
+                }
+            }
+
+            return list;
+        }
+
+    }
+
 };
 
 
@@ -28,9 +59,21 @@ var Element = function(type) {
     return Mike.element(type);
 }
 
-Node.prototype.appendTo = function(element) {
+var Search = function(element, index) {
+    return Mike.search(element, index);
+}
+
+Node.prototype.appendTo = function(element, index) {
     if (element.indexOf('#') !== -1) {
-        element = document.getElementById(element.replace('#',''));
+        element = document.getElementById(element.replace('#', ''));
+    } else if (element.indexOf('.') !== -1) {
+        elements = document.getElementsByClassName(element.replace(',', ''));
+    
+        if (index) {
+            element = elements[index];
+        } else {
+            element = elements[0];
+        }
     }
 
     element.appendChild(this);
@@ -38,9 +81,17 @@ Node.prototype.appendTo = function(element) {
     return this;
 }
 
-Node.prototype.prependTo = function(element) {
+Node.prototype.prependTo = function(element, index) {
     if (element.indexOf('#') !== -1) {
-        element = document.getElementById(element.replace('#',''));
+        element = document.getElementById(element.replace('#', ''));
+    } else if (element.indexOf('.') !== -1) {
+        var elements = document.getElementsByClassName(element.replace('.', ''));
+
+        if (index) {
+            element = elements[index];
+        } else {
+            element = elements[0];
+        }
     }
 
     element.insertBefore(this, element.firstChild);

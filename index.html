@@ -23,13 +23,19 @@
 			  			background 	: '#f00',
 			  			color 		: '#fff'
 			  		})
-			  		.prependTo('#hello');
+			  		.prependTo('.foo');
 
 
+
+			 var element = new Search('[a-z]');
+
+			 console.log(element);
 		});
 	</script>
 </head>
 
 <body>
 	<div id="hello"></div>
+	<div class="foo">FOO</div>
+	<div class="foo">BAR</div>
 </body>
